@@ -183,6 +183,71 @@ plt.xlabel('Godine')
 plt.ylabel('Vrijene [ms]')
 plt.show()
 
+# prosjecno trajanje QRS kompleksa u odnosu na tip aritmije
+prosjekQRS=np.zeros(16)
+brojIspitanika=np.zeros(16)
+for i in range(0,red-1):
+    if(target[i]==1):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==2):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==3):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==4):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==5):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==6):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==7):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==8):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==9):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==10):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==11):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==12):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==13):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==14):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==15):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+    elif (target[i]==16):
+        prosjekQRS[target[i]-1]=prosjekQRS[target[i]-1]+data[i][4]
+        brojIspitanika[target[i]-1]=brojIspitanika[target[i]-1] + 1
+
+for i in range(0,16):
+    prosjekQRS[i]=prosjekQRS[i]/brojIspitanika[i]
+
+plt.figure(figsize=(5,5))
+x1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+y1 = prosjekQRS
+plt.bar(x1,y1,align='center') # A bar chart
+plt.xlabel('Tip aritmije')
+plt.ylabel('Prosječno trajanje QRS [ms]')
+plt.title('QRS trajanje za tipove aritmije')
+plt.show()
+
 def fit_model(X_train, X_test, y_train, y_test):
 
     # Kreiranje objekta klasifikatora; random_state=0 znači da bi se pri svakom pokretanju trebali dobiti isti rezultati
